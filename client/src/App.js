@@ -18,7 +18,7 @@ function App() {
 
     // Fetch Contacts
     const fetchContacts = async () => {
-        const res = await fetch('http://www.raydelto.org/agenda.php')
+        const res = await fetch('/api')
         const data = await res.json()
 
         return data
@@ -26,7 +26,7 @@ function App() {
 
     // Add Contact
     const onAdd = async (contact) => {
-        const res = await fetch('http://www.raydelto.org/agenda.php',
+        const res = await fetch('/api',
             {
                 method: 'POST',
                 header: {
@@ -38,10 +38,6 @@ function App() {
         const newContact = await res.json()
 
         updateData([newContact, ...data])
-
-        // const id = Math.floor(Math.random() * 10000) + 1
-        // const newTask = { id, ...contact }
-        // updateData([...data, newTask])
     }
 
     return (
